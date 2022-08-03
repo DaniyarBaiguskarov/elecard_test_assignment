@@ -13,7 +13,10 @@ import { sorts, views, SortItems } from "./utils/CardView.js";
 function App() {
   const [view, setView] = useState("cards");
   const [sort, setSort] = useState("image");
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem("items")));
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("items")) || []
+  );
+
   const [isLoading, setIsloading] = useState(false);
 
   const fetchAndStoreItems = async () => {
@@ -39,7 +42,7 @@ function App() {
   };
 
   React.useEffect(() => {
-    if (!items) {
+    if (items) {
       fetchAndStoreItems();
     }
   }, []);
