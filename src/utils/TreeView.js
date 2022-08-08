@@ -1,14 +1,3 @@
-///функция по замене имени файла из формата animals/annas-hummingbird-5837675__480.jpg
-/// в формат animals/annas-hummingbird/5837675__480.jpg
-function formatFileName(items) {
-  let reg = /-/y;
-  return items.map((item) => {
-    reg.lastIndex = item.image.lastIndexOf("-");
-    item.path = item.image.replace(reg, "/");
-    return item;
-  });
-}
-
 ///функция для извлечения имени файла - 5837675__480.jpg по прошлому примеру
 function extractFileName(str) {
   const indexOfLastWord = str.split("/").length - 1;
@@ -26,7 +15,6 @@ function extractFileName(str) {
 //                                          [
 //                                       ]
 export function buildTree(items) {
-  items = formatFileName(items);
   let result = items
     .reduce((r, s) => {
       ("root/" + s.path).split("/").reduce((a, item) => {

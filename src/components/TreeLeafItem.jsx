@@ -1,7 +1,7 @@
 import React from "react";
 
 const TreeLeafItem = ({ item }) => {
-  return <div className="tree__branch__name">{item.image}</div>;
+  return <img src={item.image} className="tree__branch_last__name_full" />;
 };
 
 export default TreeLeafItem;

@@ -9,10 +9,15 @@ const CardsView = ({ items, deleteItem }) => {
   function handlePageChange(page) {
     setPage(page);
   }
+
   return (
     <>
       <ItemsList items={currentPageItems} deleteItem={deleteItem} />
-      <Pages totalPages={totalPages} handlePageChange={handlePageChange} />
+      <Pages
+        totalPages={totalPages}
+        handlePageChange={handlePageChange}
+        currentPage={page}
+      />
     </>
   );
 };

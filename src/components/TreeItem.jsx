@@ -31,8 +31,13 @@ const TreeItem = ({ item }) => {
       <div onClick={(e) => toggle(e)}>
         {fullCard ? (
           <TreeLeafItem item={item[1]} />
-        ) : (
+        ) : flag ? (
           <div className="tree__branch__name">{item[0]}</div>
+        ) : (
+          <img
+            src={item[1].image}
+            className="tree__branch_last__name_thumbnail"
+          />
         )}
       </div>
 
